@@ -55,12 +55,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Vector3 objectScale = transform.localScale;
+
         if(other.gameObject.CompareTag("Pickup"))
         {
             other.gameObject.SetActive(false);
             count = count + 1;
 
             SetCountText();
+
+            transform.localScale = new Vector3(objectScale.x * 1.25f, objectScale.y * 1.25f, objectScale.z * 1.25f);
         }
     }
     
